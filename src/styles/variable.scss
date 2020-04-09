@@ -1,0 +1,30 @@
+$_body_width: 80%;
+$_body_pd: 10%;
+//修改为 768 导航兼容
+$_iphone_S_W: 768px;
+$_iphone_nav_S_W: 768px;
+
+//页面中标题
+$_page_title: 28px;
+
+@mixin body_width {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@mixin body_pd {
+  padding: 0 10%;
+}
+@mixin font-size($size) {
+  font-size: $size/2;
+}
+
+@function size($size) {
+  @return $size/2;
+}
+@mixin over_N_hide($n) {
+  overflow: hidden;
+  display: -webkit-box; //将元素设为盒子伸缩模型显示
+  -webkit-box-orient: vertical; //伸缩方向设为垂直方向
+  -webkit-line-clamp: $n; //超出3行隐藏，并显示省略号
+}

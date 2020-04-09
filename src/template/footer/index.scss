@@ -1,0 +1,77 @@
+@media screen and (max-width: $_iphone_S_W) {
+  .footer.xl {
+    background: whitesmoke;
+    font-size: size(24px);
+    .box {
+      .bq {
+        display: none;
+      }
+      .guide {
+        float: none;
+        text-align: center;
+        font-size: 0;
+        span {
+          text-decoration: underline;
+          font-size: size(20px);
+          float: none;
+          display: inline-block;
+          padding-right: size(24px);
+          padding-left: size(24px);
+          border-width: size(2px);
+          &:nth-child(2) {
+            border-right: size(2px) solid #666666;
+            padding-right: size(24px);
+          }
+          &:last-child {
+            display: block;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+.footer {
+  height: 80px;
+  background: rgba(234, 234, 234, 1);
+  font-size: 14px;
+  color: #666;
+  position: relative;
+  .box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    @include body_width();
+
+    .bq {
+      display: block;
+    }
+    .guide {
+   
+      span {
+        display: block;
+        padding-left: 25px;
+        border-right: 2px solid #666666;
+        padding-right: 25px;
+        float: left;
+        &:hover{
+          cursor: pointer;
+          text-decoration: underline;
+        }
+        &:first-child {
+          padding-left: 0px;
+        }
+        &:nth-child(2) {
+          border-right: none;
+          padding-right: 0px;
+        }
+        &:last-child {
+          border-right: none;
+          padding-right: 0px;
+          display: none;
+        }
+      }
+    }
+  }
+}

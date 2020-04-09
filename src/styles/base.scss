@@ -1,0 +1,33 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: rgba(245, 245, 245, 1);
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+@media screen and (max-width: $_iphone_S_W) {
+  .offset_panel {
+    position: relative;
+  }
+}
+
+@media screen and (min-width: $_iphone_S_W) {
+  html {
+    font-size: size(75PX) !important;
+  }
+}
+ul,li{
+  list-style: none;
+}
