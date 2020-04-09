@@ -1,7 +1,7 @@
 {
-  "name": "font-sun-english",
+  "name": "webpack-multi-page",
   "version": "1.0.0",
-  "description": "阳光英语项目",
+  "description": "webpack多页面脚手架",
   "main": "index.js",
   "directories": {
     "doc": "doc"
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitee.com:gxGeXin/font-sun-english.git"
+    "url": "https://github.com/gexin1/webpack-multi-page"
   },
   "author": "river",
   "license": "ISC",

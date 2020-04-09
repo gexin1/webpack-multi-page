@@ -2,7 +2,7 @@
  * @Author: river
  * @Date: 2020-04-09 11:33:23
  * @Last Modified by: river
- * @Last Modified time: 2020-04-09 13:11:00
+ * @Last Modified time: 2020-04-09 14:19:13
  */
 const fs = require("fs");
 const path = require("path");
@@ -34,10 +34,7 @@ const getHtmls = () => {
         hash: true,
         chunks: ["vendors", k],
         favicon: resolve("../public/favicon.ico"),
-        minify: {
-          removeComments: true,
-          collapseWhitespace: false
-        }
+        minify:true
       })
     );
   });
