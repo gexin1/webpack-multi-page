@@ -1,8 +1,8 @@
 /*
  * @Author: river
  * @Date: 2020-04-09 11:33:23
- * @Last Modified by:   river
- * @Last Modified time: 2020-04-09 11:33:23
+ * @Last Modified by: river
+ * @Last Modified time: 2020-04-09 13:11:00
  */
 const fs = require("fs");
 const path = require("path");
@@ -10,11 +10,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const resolve = (...dir) => path.resolve(__dirname, ...dir);
 // 基础页面路径
 const baseViewPath = resolve("../src/views");
-
-const getViewField = () => {
-  const fields = fs.readdirSync(baseViewPath);
-  return fields.map(k => resolve(baseViewPath, k, "./index"));
-};
 /**
  * 获取入口文件
  */

@@ -2,7 +2,7 @@
  * @Author: river
  * @Date: 2020-04-09 11:33:23
  * @Last Modified by: river
- * @Last Modified time: 2020-04-09 11:42:46
+ * @Last Modified time: 2020-04-09 13:11:58
  */
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { resolve, getEntry, getHtmls } = require('./webpack.help');
@@ -24,7 +24,7 @@ module.exports = {
     extensions: ['.js'],
     alias: {
       '@': resolve('../src'),
-      '@images': resolve('../src/assets/images'),
+      '@images': resolve('../src/images'),
       '@libs': resolve('../src/libs'),
       '@template': resolve('../src/template'),
       '@utils': resolve('../src/utils'),
