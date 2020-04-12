@@ -6,37 +6,46 @@
  */
 const { resolve } = require('./webpack.help');
 module.exports = {
-  //不打入项目使用cdn引入
-  externals: {
-    jquery: '$',
-    jquery: 'jQuery',
-    bootstrap: 'bootstrap',
-  },
-  // 全局注入项目
-  provide: {
-    $: 'jquery',
-    jQuery: 'jquery',
-  },
-  //路径别名
-  alias: {
-    '@': resolve('../src'),
-  },
-  // 全局样式
-  sassOption: {
-    resources: [resolve('../src/styles/variable.scss')],
-  },
-  dev: {
-    assetsPublicPath: '/',
-    devServer: {
-      contentBase: './dist',
-      stats: 'errors-only',
-      compress: false,
-      host: 'localhost',
-      port: 7001,
-      open: true
+    buildSpeed: [
+        { loader: 'thread-loader' },
+        {
+            loader: 'cache-loader',
+        },
+    ],
+    // 不打入项目使用cdn引入
+    externals: {
+        jquery: '$',
+        bootstrap: 'bootstrap',
     },
-  },
-  build: {
-    assetsPublicPath: '/',
-  },
+    // 全局注入项目
+    provide: {
+        $: 'jquery',
+        jQuery: 'jquery',
+    },
+    // 路径别名
+    alias: {
+        '@': resolve('../src'),
+    },
+    // 全局样式
+    sassOption: {
+        resources: [resolve('../src/styles/variable.scss')],
+    },
+    dev: {
+        assetsPublicPath: '/',
+        devServer: {
+            contentBase: './dist',
+            stats: 'errors-only',
+            compress: false,
+            host: 'localhost',
+            port: 7001,
+            open: true,
+            overlay: {
+                errors: true,
+                warnings: true,
+            },
+        },
+    },
+    build: {
+        assetsPublicPath: '/',
+    },
 };
