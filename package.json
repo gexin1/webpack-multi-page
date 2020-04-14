@@ -75,7 +75,7 @@
     "bootstrap": "^3.4.1",
     "eslint-loader": "^4.0.0",
     "eventbusjs": "^0.2.0",
-    "jquery": "^1.11.1",
+    "jquery": "^3.5.0",
     "nprogress": "^0.2.0",
     "qs": "^6.9.3",
     "vconsole": "^3.3.4"
