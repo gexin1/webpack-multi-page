@@ -2,10 +2,8 @@
  * @Author: river
  * @Date: 2020-04-09 11:33:23
  * @Last Modified by: river
- * @Last Modified time: 2020-04-09 11:33:48
+ * @Last Modified time: 2020-04-20 15:37:36
  */
-
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -13,6 +11,9 @@ const merge = require('webpack-merge');
 const { resolve } = require('./webpack.help');
 const base = require('./webpack.base');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 const smp = new SpeedMeasurePlugin();
 module.exports = smp.wrap(
     merge(base, {
@@ -24,6 +25,16 @@ module.exports = smp.wrap(
             chunkFilename: 'js/[id].chunk.[contenthash].js',
         },
         optimization: {
+            minimize: true,
+            minimizer: [
+                new TerserPlugin({
+                    terserOptions: {
+                        ie8: true,
+                        warnings: false,
+                        // safari10: false,
+                    },
+                }),
+            ],
             splitChunks: {
                 chunks: 'all',
                 // chunks: 'async', // async表示只对异步代码进行分割
@@ -61,23 +72,15 @@ module.exports = smp.wrap(
                     to: '',
                 },
             ]),
-            new UglifyJsPlugin({
-                uglifyOptions: {
-                    ie8: true,
-                    mangle: {
-                        properties: false,
-                    },
-                },
-            }),
             new OptimizeCssAssetsPlugin(),
-            new UglifyJsPlugin({
-                uglifyOptions: {
-                    ie8: true,
-                    mangle: {
-                        properties: false,
-                    },
-                },
-            }),
+            // new UglifyJsPlugin({
+            //     uglifyOptions: {
+            //         ie8: true,
+            //         mangle: {
+            //             properties: true,
+            //         },
+            //     },
+            // }),
         ],
     })
 );
