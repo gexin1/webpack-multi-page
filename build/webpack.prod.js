@@ -2,7 +2,7 @@
  * @Author: river
  * @Date: 2020-04-09 11:33:23
  * @Last Modified by: river
- * @Last Modified time: 2020-04-20 15:37:36
+ * @Last Modified time: 2020-04-20 18:02:02
  */
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -28,6 +28,7 @@ module.exports = smp.wrap(
             minimize: true,
             minimizer: [
                 new TerserPlugin({
+                    sourceMap: true,
                     terserOptions: {
                         ie8: true,
                         warnings: false,
