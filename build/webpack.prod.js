@@ -12,7 +12,6 @@ const { resolve } = require('./webpack.help');
 const base = require('./webpack.base');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const smp = new SpeedMeasurePlugin();
 module.exports = smp.wrap(
@@ -28,7 +27,7 @@ module.exports = smp.wrap(
             minimize: true,
             minimizer: [
                 new TerserPlugin({
-                    sourceMap: true,
+                    sourceMap: false,
                     terserOptions: {
                         ie8: true,
                         warnings: false,
@@ -74,14 +73,6 @@ module.exports = smp.wrap(
                 },
             ]),
             new OptimizeCssAssetsPlugin(),
-            // new UglifyJsPlugin({
-            //     uglifyOptions: {
-            //         ie8: true,
-            //         mangle: {
-            //             properties: true,
-            //         },
-            //     },
-            // }),
         ],
     })
 );

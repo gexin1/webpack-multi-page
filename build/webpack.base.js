@@ -11,7 +11,28 @@ const config = require('./config');
 const entry = getEntry();
 const htmls = getHtmls();
 const devMode = process.env.NODE_ENV !== 'production';
-// console.log([...config.buildSpeed, "babel-loader"])
+
+// function generateRules() {
+//     const rules =
+//     // 开发环境引入eslint
+//     if (devMode) {
+//         rules.push({
+//             test: /\.(js)$/,
+//             loader: 'eslint-loader',
+//             enforce: 'pre',
+//             exclude: /node_modules/,
+//             options: {
+//                 fix: true,
+//                 emitWarning: true,
+//                 formatter: require('eslint-friendly-formatter'),
+//             },
+//         });
+//     }
+//     return rules;
+// }
+
+// const rules = generateRules();
+
 module.exports = {
     entry,
     output: {
@@ -33,16 +54,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.(js)$/,
-                loader: 'eslint-loader',
-                enforce: 'pre',
-                exclude: /node_modules/,
-                options: {
-                    fix: true,
-                    formatter: require('eslint-friendly-formatter'),
-                },
-            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -75,7 +86,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: /node_modules/,
+                // exclude: /node_modules/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -85,6 +96,9 @@ module.exports = {
                             publicPath: '/css/',
                         },
                     },
+                    // {
+                    //     loader: 'style-loader',
+                    // },
                     {
                         loader: 'css-loader',
                     },

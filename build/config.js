@@ -14,7 +14,7 @@ module.exports = {
     ],
     // 不打入项目使用cdn引入
     externals: {
-        jquery: '$',
+        // jquery: '$',
         bootstrap: 'bootstrap',
     },
     // 全局注入项目
@@ -37,7 +37,7 @@ module.exports = {
             stats: 'errors-only',
             compress: false,
             host: 'localhost',
-            port: 7001,
+            port: 8082,
             open: true,
             overlay: {
                 errors: true,

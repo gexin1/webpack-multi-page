@@ -1,21 +1,23 @@
-// 导入
-// import VConsole from "vconsole";
-// new VConsole();
-// import 'amfe-flexible';
+/* eslint-disable */
+// Does not work with `new funcA.bind(thisArg, args)`
 
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
-// import EventBus from 'eventbusjs';
-import Lazyload from '@/libs/lazyload/lazyload.js';
+// 在入口引入不支持的方法
+// import 'core-js/stable/function/bind';
 
-// 基础css
-import '@/styles/base.scss';
+// import NProgress from 'nprogress';
+// import 'nprogress/nprogress.css';
+
+// import Lazyload from '@/libs/lazyload/lazyload.js';
+
+// // 基础css
+// import '@/styles/base.scss';
 // const devMode = process.env.NODE_ENV !== 'production';
 // 引入公共模板
 
-NProgress.start();
+// NProgress.start();
 // 初始化语言
 $(() => {
-    NProgress.done();
-    new Lazyload($('.lazyload'));
+    // NProgress.done();
+    // new Lazyload($('.lazyload'));
+    console.log.bind(console, 42)(43); // => 42 43
 });

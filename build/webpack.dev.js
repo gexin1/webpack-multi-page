@@ -8,11 +8,8 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const base = require('./webpack.base');
 
-module.exports = merge(
-    {
-        mode: 'development',
-        devtool: 'source-map',
-        plugins: [new webpack.HotModuleReplacementPlugin()],
-    },
-    base
-);
+module.exports = merge(base, {
+    mode: 'development',
+    devtool: 'source-map',
+    plugins: [new webpack.HotModuleReplacementPlugin()],
+});
