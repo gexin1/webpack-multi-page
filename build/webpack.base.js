@@ -75,7 +75,8 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: /node_modules/,
+                //防止不解析第三方包
+                //exclude: /node_modules/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
